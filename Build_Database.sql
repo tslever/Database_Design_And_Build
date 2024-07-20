@@ -151,11 +151,11 @@
 --    id INT NOT NULL PRIMARY KEY,
 --    course_id INT NOT NULL,
 --    outcome NVARCHAR(MAX) NOT NULL,
+--    is_active BIT NOT NULL,
 --    CONSTRAINT foreign_key_between_course_id_in_outcomes_and_id_in_courses FOREIGN KEY (course_id)
 --    REFERENCES courses (id)
 --    ON DELETE CASCADE
---    ON UPDATE CASCADE,
---    is_active BIT NOT NULL
+--    ON UPDATE CASCADE
 --);
 
 --INSERT INTO outcomes (id, course_id, outcome, is_active)

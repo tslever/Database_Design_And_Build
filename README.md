@@ -39,7 +39,15 @@ ORDER BY TABLE_NAME;
 
 Please see the below Entity Relationship Diagram.
 
-Learning outcomes (LOs) capture what students should be able to do after taking a course (e.g., design and build a MySQL database). Learning outcomes vary in terms of detail as they are written by different instructors. Learning outcomes for each course must be in the database. We constructed table outcomes with columns id, course_id, outcome, and is_active. Column id is a not null primary key of integers. Column course_id is a not null column of integers that is a foreign key that references column id in table courses. Column outcome is a not null column of strings. Column is_active is a not null column of bits.
+Learning outcomes (LOs) capture what students should be able to do after taking a course (e.g., design and build a MySQL database). Learning outcomes vary in terms of detail as they are written by different instructors. Learning outcomes for each course must be in the database. We constructed table outcomes with columns id, course_id, outcome, and is_active. Column id is a not null primary key of whole numbers. Column course_id is a not null column of whole numbers that is a foreign key that references column id in table courses. Column outcome is a not null column of strings. Column is_active is a not null column of bits.
+
+The employed, active instructors assigned to teach the different active courses for each term in 2021 must be in the database. We constructed table instructors with columns id, name, is_current_employee, and is_active. Column id is a not null primary key of whole numbers. Column name is a not null column of strings. Column is_current_employee is a not null column of bits. Column is_active is a not null column of bits.
+
+We constructed table courses with columns id, mnemonic, name, brief, and is_active. Column id is a not null primary key of whole numbers. Column mnemonic is a not null, unique column of strings. Column name is a not null, unique column of strings. Column brief is a not null column of strings. Column is_active is a not null column of bits.
+
+We constructed table terms with columns id, season, and year. Column id is a not null primary key of whole numbers. Column season is a not null column of instances of "Spring", "Summer", and "Fall". Column year is a not null natural number greater than or equal to 2021.
+
+We constructed table teaching_assignments with columns id, course_id, term_id, and instructor_id. Column id is a not null primary key of whole numbers. Column course_id is a not null column of whole numbers that is a foreign key that references column id in table courses. Column term_id is a not null column of whole numbers that is a foreign key that references column id in table terms. Column instructor_id is a not null primary key of whole numbers that references column id in table instructors. 
 
 ## Database Analysis
 
