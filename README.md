@@ -18,7 +18,7 @@ The workbook contains worksheets for all courses except for "SARC 5400: Data Vis
 
 ## Database Design
 
-# Database
+### Database
 
 We construct database UVA_SDS_Online_MSDS_Program_Database on server tom-levers-server.database.windows.net. We used Microsoft Azure: Cloud Computing Services. We used Visual Studio Code and the following ADO.NET connection string with SQL authentication to create, retrieve, update, and delete objects in the database.
 
@@ -35,7 +35,7 @@ WHERE TABLE_TYPE = 'BASE TABLE'
 ORDER BY TABLE_NAME;
 ```
 
-# Tables
+### Tables
 
 Please see the below Entity Relationship Diagram.
 
@@ -47,7 +47,13 @@ We constructed table courses with columns id, mnemonic, name, brief, and is_acti
 
 We constructed table terms with columns id, season, and year. Column id is a not null primary key of whole numbers. Column season is a not null column of instances of "Spring", "Summer", and "Fall". Column year is a not null natural number greater than or equal to 2021.
 
-We constructed table teaching_assignments with columns id, course_id, term_id, and instructor_id. Column id is a not null primary key of whole numbers. Column course_id is a not null column of whole numbers that is a foreign key that references column id in table courses. Column term_id is a not null column of whole numbers that is a foreign key that references column id in table terms. Column instructor_id is a not null primary key of whole numbers that references column id in table instructors. 
+We constructed table teaching_assignments with columns id, course_id, term_id, and instructor_id. Column id is a not null primary key of whole numbers. Column course_id is a not null column of whole numbers that is a foreign key that references column id in table courses. Column term_id is a not null column of whole numbers that is a foreign key that references column id in table terms. Column instructor_id is a not null primary key of whole numbers that references column id in table instructors.
+
+# Indexes
+
+According to [1], "An index is a database structure that makes it quicker and easier to find records based on the values in one or more fields... For example, suppose you have a Customers table that holds customer information: name, address, phone number, Swiss bank account number, and so forth. The table also contains a CustomerId field that it uses as its primary key. Unfortunately customers usually don't remember their customer IDs, so you need to be able to look them up by name or phone number. If you make Name and Phone Number be two different keys, you can quickly locate a customer's record in three ways: by customer ID, by name, and by phone number... Place indexes on the fields you are most likely to need to search."
+
+We should build indexes for fields name of table instructors and name of table courses. We are most likely to need to search for instructor and course information.
 
 ## Database Analysis
 
@@ -78,3 +84,7 @@ ON term_id = terms.id
 LEFT JOIN instructors
 ON instructor_id = instructors.id
 ```
+
+## References
+
+1. Rod Stephens (2008). "Chapter 3. Relational Database Fundamentals". Beginning Database Design Solutions. https://learning.oreilly.com/library/view/beginning-database-design/9780470385494/ch03.html#indexes. Accessed 07/20/2024.
