@@ -1,36 +1,37 @@
 --CREATE TABLE instructors (
 --    id INT NOT NULL PRIMARY KEY,
 --    name NVARCHAR(MAX) NOT NULL,
---    employed BIT NOT NULL
+--    is_current_employee BIT NOT NULL,
+--    is_active BIT NOT NULL
 --);
 
---INSERT INTO instructors (id, name, employed)
+--INSERT INTO instructors (id, name, is_current_employee, is_active)
 --VALUES
---    (0,'Peter Alonzi',1),
---    (1,'Rafael Alvarado',1),
---    (2,'Panagiotis Apostolellis',1),
---    (3,'Stephen Baek',1),
---    (4,'Bill Basener',1),
---    (5,'Nada Basit',1),
---    (6,'Jeremy Bolton',0),
---    (7,'Renee Cummings',1),
---    (8,'Caitlin Dreisbach',1),
---    (9,'Eric Field',1),
---    (10,'Judy Fox',1),
---    (11,'Peter Gedeck',1),
---    (12,'Teague Henry',1),
---    (13,'Abbas Kaziempour',1),
---    (14,'Jon Kropko',1),
---    (15,'Sree Mallikarjun',1),
---    (16,'N. Rich Nguyen',1),
---    (17,'Michael Porter',1),
---    (18,'Luis Felipe Rosado Murillo',0),
---    (19,'Marc Ruggiano',1),
---    (20,'Eric Tassone',1),
---    (21,'Adam Tashman',1),
---    (22,'Jason Williamson',1),
---    (23,'Jeffrey Woo',1),
---    (24,'Lei Xie',1)
+--    (0,'Peter Alonzi',1,1),
+--    (1,'Rafael Alvarado',1,1),
+--    (2,'Panagiotis Apostolellis',1,1),
+--    (3,'Stephen Baek',1,1),
+--    (4,'Bill Basener',1,1),
+--    (5,'Nada Basit',1,1),
+--    (6,'Jeremy Bolton',0,0),
+--    (7,'Renee Cummings',1,1),
+--    (8,'Caitlin Dreisbach',1,1),
+--    (9,'Eric Field',1,1),
+--    (10,'Judy Fox',1,1),
+--    (11,'Peter Gedeck',1,1),
+--    (12,'Teague Henry',1,1),
+--    (13,'Abbas Kaziempour',1,1),
+--    (14,'Jon Kropko',1,1),
+--    (15,'Sree Mallikarjun',1,1),
+--    (16,'N. Rich Nguyen',1,1),
+--    (17,'Michael Porter',1,1),
+--    (18,'Luis Felipe Rosado Murillo',0,0),
+--    (19,'Marc Ruggiano',1,1),
+--    (20,'Eric Tassone',1,1),
+--    (21,'Adam Tashman',1,1),
+--    (22,'Jason Williamson',1,1),
+--    (23,'Jeffrey Woo',1,1),
+--    (24,'Lei Xie',1,1)
 
 --CREATE TABLE terms (
 --    id INT NOT NULL PRIMARY KEY,
