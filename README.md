@@ -49,9 +49,65 @@ We constructed table terms with columns id, season, and year. Column id is a not
 
 We constructed table teaching_assignments with columns id, course_id, term_id, and instructor_id. Column id is a not null primary key of whole numbers. Column course_id is a not null column of whole numbers that is a foreign key that references column id in table courses. Column term_id is a not null column of whole numbers that is a foreign key that references column id in table terms. Column instructor_id is a not null primary key of whole numbers that references column id in table instructors.
 
-# Indexes
+### Normalization
 
-According to [1], "An index is a database structure that makes it quicker and easier to find records based on the values in one or more fields... For example, suppose you have a Customers table that holds customer information: name, address, phone number, Swiss bank account number, and so forth. The table also contains a CustomerId field that it uses as its primary key. Unfortunately customers usually don't remember their customer IDs, so you need to be able to look them up by name or phone number. If you make Name and Phone Number be two different keys, you can quickly locate a customer's record in three ways: by customer ID, by name, and by phone number... Place indexes on the fields you are most likely to need to search."
+#### Zeroth Normal Form (0NF)
+
+A table is not normalized as follows.
+
+#### First Normal Form (1NF)
+
+According to [1], "Normalization makes the database more able to accommodate changes in the structure of the data. It also protects the database against certain kinds of errors... Normalization is a process of rearranging the database to put it into a standard (normal) form that prevents these kinds of anomalies" and eliminates redundancy.
+
+"The official qualifications for 1NF are:
+
+1. Each column [in a table] must have a unique name.
+
+2. The order of the rows and columns doesn't matter.
+
+3. Each column must have a single data type.
+
+4. No two rows can contain [all] identical values. Every table has a primary key.
+
+5. Each column must contain a single value.
+
+6. Columns cannot contain repeating groups [such as] Critter1, Critter2, and Critter3."
+
+The tables in our database are in First Normal Form.
+
+#### Second Normal Form (2NF)
+
+"A table is in 2NF if:
+
+1. It is in 1NF.
+
+2. All of the non-key fields depend on all of the key fields.
+
+"If you ensure that every table represents one single, unified concept such as wrestler or match, the table will be in 2NF."
+
+The tables in our database are in Second Normal Form.
+
+#### Third Normal Form (3NF)
+
+A table is in 3NF if:
+
+1. It is in 2NF.
+
+2. It contains no transitive dependencies.
+
+A transitive dependency is when one non-key field's value depends on another non-key field's value.
+
+#### Stopping at Third Normal Form
+
+"Many database designers stop normalizing the database at 3NF because it provides the most bang for the buck. It's fairly easy to convert a database to 3NF and that level of normalization prevents the most common data anomalies. It stores separate data separately so you can add and remove pieces of information without destroying unrelated data. It also removes redundant data so the database isn't full of a zillion copies of the same information that waste space and make updating values difficult.
+
+"However, the database may still be vulnerable to some less common anomalies that are prevented by the more complete normalizations described in the following sections. These greater levels of normalization are rather technical and confusing. They can also lead to unnecessarily complicated data models that are hard to implement, hard to maintain, and hard to use. In some cases, they can give worse performance than less completely normalized designs."
+
+Let's stop at Third Normal Form.
+
+### Indexes
+
+According to [2], "An index is a database structure that makes it quicker and easier to find records based on the values in one or more fields... For example, suppose you have a Customers table that holds customer information: name, address, phone number, Swiss bank account number, and so forth. The table also contains a CustomerId field that it uses as its primary key. Unfortunately customers usually don't remember their customer IDs, so you need to be able to look them up by name or phone number. If you make Name and Phone Number be two different keys, you can quickly locate a customer's record in three ways: by customer ID, by name, and by phone number... Place indexes on the fields you are most likely to need to search."
 
 We should build indexes for fields name of table instructors and name of table courses. We are most likely to need to search for instructor and course information.
 
@@ -87,4 +143,6 @@ ON instructor_id = instructors.id
 
 ## References
 
-1. Rod Stephens (2008). "Chapter 3. Relational Database Fundamentals". Beginning Database Design Solutions. https://learning.oreilly.com/library/view/beginning-database-design/9780470385494/ch03.html#indexes. Accessed 07/20/2024.
+1. Rod Stephens (2008). "Chapter 7. Normalizing Data". Beginning Database Design Solutions. https://learning.oreilly.com/library/view/beginning-database-design/9780470385494/ch07.html#what_is_normalization_question. Access 07/20/2024.
+
+2. Rod Stephens (2008). "Chapter 3. Relational Database Fundamentals". Beginning Database Design Solutions. https://learning.oreilly.com/library/view/beginning-database-design/9780470385494/ch03.html#indexes. Accessed 07/20/2024.
