@@ -111,6 +111,56 @@ According to [2], "An index is a database structure that makes it quicker and ea
 
 We should build indexes for fields name of table instructors and name of table courses. We are most likely to need to search for instructor and course information.
 
+### Constraints to Enforce
+
+These actions should not be allowed:
+
+1. Entering learning objectives for a course not offered by the School of Data Science
+
+2. Assigning to a course an invalid instructor who is not currently employed or not active
+
+3. Entering rows in table outcomes with an id that is not a whole number or a learning outcome that is a not a phrase
+
+4. Entering rows in table courses with
+
+    a. an id that is not a whole number
+
+    b. a mnemonic that does not consist of a string of 2 to 4 letters, a space, and either two words separated by a space or a natural number with 4 digits
+
+    c. a name that is not a phrase
+
+    d. a brief that is not a phrase
+
+    e. an indicator of whether a course is active other than 0 or 1
+
+5. Entering rows in table instructors with
+
+    a. an id that is not a whole number
+
+    b. an indicator of whether an instructor is currently employeed other than 0 or 1
+
+    c. an indicator of whether a course is active other than 0 or 1
+
+6. Entering rows in table terms with
+
+    a. an id that is not a whole number
+
+    b. a season that is not "Spring", "Summer", or "Fall"
+
+    c. a year that is less than 2021
+
+7. Entering rows in table teaching_assignments with
+
+    a. an id that is not a whole number
+
+    b. a combination of course id, term id, and instructor id where a course is not offered in the corresponding term, a course is not taught by the corresponding instructor, or an instructor is not employed and active in the corresponding term
+
+8. Relational Model
+
+### Extending Database to Support UVA SDS Residential MSDS Program
+
+We may be asked if our database could also support the UVA SDS Residential MSDS Program. We would have to add rows to tables courses, instructors, and outcomes. We may wish to introduce a column to distinguish between courses that are required online and required in person, required online and elective in person, required online and nonexistent in person, and so on. We may wish to introduce a column to distinguish between instructors who teach online, in person, both, and neither. We may wish to rename table teaching_assignments and introduce a new table to distinguish between teaching assignments for online courses and teaching assignments for residential courses.
+
 ## Database Analysis
 
 Learning outcomes for each course must be in the database. A view of a table of mnemonics of active courses, names of those courses, and active learning outcomes of those courses may be selected using the following code written in Transact SQL.
