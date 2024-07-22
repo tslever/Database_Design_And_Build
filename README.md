@@ -37,7 +37,9 @@ ORDER BY TABLE_NAME;
 
 ### Tables
 
-Please see the below Entity Relationship Diagram.
+Please see the below Entity Relationship Diagram and Relational Model. I followed Samuele Furnari and Diego Alberto Zapata Häntsch's responses at https://stackoverflow.com/questions/53293349/azure-data-studio-schema-diagram to generate automatically using Mermaid the below Entity Relationship Diagram (ERD) and Relational Model.
+
+![Entity Relationship Diagram and Relational Model](Entity_Relationship_Diagram.png)
 
 Learning outcomes (LOs) capture what students should be able to do after taking a course (e.g., design and build a MySQL database). Learning outcomes vary in terms of detail as they are written by different instructors. Learning outcomes for each course must be in the database. We constructed table outcomes with columns id, course_id, outcome, and is_active. Column id is a not null primary key of whole numbers. Column course_id is a not null column of whole numbers that is a foreign key that references column id in table courses. Column outcome is a not null column of strings. Column is_active is a not null column of bits.
 
@@ -89,13 +91,15 @@ The tables in our database are in Second Normal Form.
 
 #### Third Normal Form (3NF)
 
-A table is in 3NF if:
+"A table is in 3NF if:
 
 1. It is in 2NF.
 
 2. It contains no transitive dependencies.
 
-A transitive dependency is when one non-key field's value depends on another non-key field's value.
+A transitive dependency is when one non-key field's value depends on another non-key field's value."
+
+The tables in our database are in Third Normal Form.
 
 #### Stopping at Third Normal Form
 
