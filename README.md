@@ -99,7 +99,7 @@ The tables in our database are in Second Normal Form.
 
 A transitive dependency is when one non-key field's value depends on another non-key field's value."
 
-The tables in our database are in Third Normal Form.
+According to [2], "Third normal form... is about refining the structure of the data to remove dependencies that aren't directly related to the primary key, ensuring clarity, reducing redundancy, and enhancing the integrity and flexibility of the database." Since all columns in each table are directly related to the primary key of the table, each table is in Third Normal Form.
 
 #### Stopping at Third Normal Form
 
@@ -111,7 +111,7 @@ Let's stop at Third Normal Form.
 
 ### Indexes
 
-According to [2], "An index is a database structure that makes it quicker and easier to find records based on the values in one or more fields... For example, suppose you have a Customers table that holds customer information: name, address, phone number, Swiss bank account number, and so forth. The table also contains a CustomerId field that it uses as its primary key. Unfortunately customers usually don't remember their customer IDs, so you need to be able to look them up by name or phone number. If you make Name and Phone Number be two different keys, you can quickly locate a customer's record in three ways: by customer ID, by name, and by phone number... Place indexes on the fields you are most likely to need to search."
+According to [3], "An index is a database structure that makes it quicker and easier to find records based on the values in one or more fields... For example, suppose you have a Customers table that holds customer information: name, address, phone number, Swiss bank account number, and so forth. The table also contains a CustomerId field that it uses as its primary key. Unfortunately customers usually don't remember their customer IDs, so you need to be able to look them up by name or phone number. If you make Name and Phone Number be two different keys, you can quickly locate a customer's record in three ways: by customer ID, by name, and by phone number... Place indexes on the fields you are most likely to need to search."
 
 We should build indexes for fields name of table instructors and name of table courses. We are most likely to need to search for instructor and course information.
 
@@ -199,4 +199,6 @@ ON instructor_id = instructors.id
 
 1. Rod Stephens (2008). "Chapter 7. Normalizing Data". Beginning Database Design Solutions. https://learning.oreilly.com/library/view/beginning-database-design/9780470385494/ch07.html#what_is_normalization_question. Access 07/20/2024.
 
-2. Rod Stephens (2008). "Chapter 3. Relational Database Fundamentals". Beginning Database Design Solutions. https://learning.oreilly.com/library/view/beginning-database-design/9780470385494/ch03.html#indexes. Accessed 07/20/2024.
+2. Nord Security (2024). "Third normal form". https://nordvpn.com/cybersecurity/glossary/third-normal-form/. Accessed 07/20/2024.
+
+3. Rod Stephens (2008). "Chapter 3. Relational Database Fundamentals". Beginning Database Design Solutions. https://learning.oreilly.com/library/view/beginning-database-design/9780470385494/ch03.html#indexes. Accessed 07/20/2024.
