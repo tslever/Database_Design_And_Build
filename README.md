@@ -37,7 +37,7 @@ ORDER BY TABLE_NAME;
 
 ### Tables
 
-Please see the below Entity Relationship Diagram and Relational Model. I followed Samuele Furnari and Diego Alberto Zapata Häntsch's responses at https://stackoverflow.com/questions/53293349/azure-data-studio-schema-diagram to generate automatically using Mermaid the below Entity Relationship Diagram (ERD) and Relational Model.
+Please see the below Entity Relationship Diagram and Relational Model. I followed Samuele Furnari and Diego Alberto Zapata Häntsch's responses at https://stackoverflow.com/questions/53293349/azure-data-studio-schema-diagram to generate automatically using Mermaid a Entity Relationship Diagram (ERD) and Relational Model. However, the relationships in this ERD were reversed. I then downloaded Microsoft SQL Server Management Studio and generated the below ERD.
 
 ![Entity Relationship Diagram and Relational Model](Entity_Relationship_Diagram.png)
 
