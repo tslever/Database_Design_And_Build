@@ -195,6 +195,40 @@ LEFT JOIN instructors
 ON instructor_id = instructors.id
 ```
 
+## Uploading and Analyzing Data Using Snowflake
+
+I used Snowflake to create tables from file. I saved tables courses, instructors, outcomes, teaching_assignments, and terms to CSV files. I uploaded those CSV files to create tables courses_csv, instructors_csv, outcomes_csv, teaching_assignments_csv, and terms_csv.
+
+I used Snowflake to create tables as select. I created table table_of_mnemonics_names_and_active_outcomes_for_active_courses by creating a table based on the following query.
+
+```
+create table table_of_mnemonics_names_and_active_outcomes_for_active_courses_ERD as
+    SELECT mnemonic, name, outcome
+    FROM DS5111_SU24.tsl2b.courses_csv AS courses
+    LEFT JOIN DS5111_SU24.tsl2b.outcomes_csv AS outcomes
+    ON courses.id = course_id
+    WHERE courses.is_active = 1 AND outcomes.is_active = 1;
+```
+
+I created table table_of_mnemonics_course_names_seasons_years_and_names_of_instructors by creating a table based on the following query.
+
+```
+create table table_of_mnemonics_course_names_seasons_years_and_names_of_instructors_erd as
+    SELECT
+        mnemonic,
+        courses.name as course_name,
+        season,
+        year,
+        instructors.name as instructor_name
+    FROM DS5111_SU24.tsl2b.teaching_assignments_csv
+    LEFT JOIN DS5111_SU24.tsl2b.courses_csv AS courses
+    ON course_id = courses.id
+    LEFT JOIN DS5111_SU24.tsl2b.terms_csv AS terms
+    ON term_id = terms.id
+    LEFT JOIN DS5111_SU24.tsl2b.instructors_csv AS instructors
+    ON instructor_id = instructors.id
+```
+
 ## References
 
 1. Rod Stephens (2008). "Chapter 7. Normalizing Data". Beginning Database Design Solutions. https://learning.oreilly.com/library/view/beginning-database-design/9780470385494/ch07.html#what_is_normalization_question. Access 07/20/2024.
