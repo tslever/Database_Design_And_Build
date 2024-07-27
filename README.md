@@ -262,6 +262,7 @@ I connected dbt Cloud to this Git repository.
 
 I started developing in the dbt Cloud IDE. I initialized a dbt project and committed changes to my Git repository to branch dbt. I issued a pull request and merged changes into branch main. Running dbt run created tables / models dbt_tslever.my_first_dbt_model and dbt_tslever.my_second_dbt_model in the DBT_TSLEVER schema of UVA_SDS_ONLINE_MSDS_PROGRAM_DATABASE of Snowflake. Running dbt run again did the same thing.
 
+I added courses_csv.csv, instructors_csv.csv, outcomes_csv.csv, teaching_assignments_csv.csv, and terms_csv.csv to directory seeds. I ran dbt seed to create tables in schema DBT_TSLEVER based of these seed files.
 
 
 ## References
