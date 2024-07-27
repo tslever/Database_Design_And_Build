@@ -235,6 +235,28 @@ create table table_of_mnemonics_course_names_seasons_years_and_names_of_instruct
     ON instructor_id = instructors_csv.id
 ```
 
+## Uploading and Analyzing Data Using dbt
+
+According to [4], "dbt is a SQL-first transformation workflow that lets teams quickly and collaboratively deploy analytics code following software engineering best practices like modularity, portability, CI/CD, and documentation."
+
+Following link with text "Create a free account" at [5], I created an account, verified my account, and logged in via dbt.com. I completed project setup with the following credentials.
+
+Name: Analytics (preset)
+Data warehousing platform: Snowflake
+Connection name: Snowflake
+Account: gsfqvtq-uza63489
+Database: UVA_SDS_ONLINE_MSDS_PROGRAM_DATABASE
+Warehouse: COMPUTE_WH
+OAuth method: --
+Role: ACCOUNTADMIN
+Auth method: Username and password
+Username: TSLEVER
+Password: Password for UVA_SDS_ONLINE_MSDS_PROGRAM_DATABASE
+Schema: dbt_tslever
+Target name: default
+Threads: 6
+
+
 ## References
 
 1. Rod Stephens (2008). "Chapter 7. Normalizing Data". Beginning Database Design Solutions. https://learning.oreilly.com/library/view/beginning-database-design/9780470385494/ch07.html#what_is_normalization_question. Access 07/20/2024.
@@ -242,3 +264,7 @@ create table table_of_mnemonics_course_names_seasons_years_and_names_of_instruct
 2. Nord Security (2024). "Third normal form". https://nordvpn.com/cybersecurity/glossary/third-normal-form/. Accessed 07/20/2024.
 
 3. Rod Stephens (2008). "Chapter 3. Relational Database Fundamentals". Beginning Database Design Solutions. https://learning.oreilly.com/library/view/beginning-database-design/9780470385494/ch03.html#indexes. Accessed 07/20/2024.
+
+4. dbt Labs, Inc. (2024). "What is dbt?". https://www.getdbt.com/product/what-is-dbt. Accessed 07/26/2024.
+
+5. dbt Labs, Inc. (2024). https://www.getdbt.com/. Accessed 07/26/2024.
