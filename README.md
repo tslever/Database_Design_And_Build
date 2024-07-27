@@ -235,6 +235,8 @@ create table table_of_mnemonics_course_names_seasons_years_and_names_of_instruct
     ON instructor_id = instructors_csv.id
 ```
 
+All of these tables were created in Snowflake's schema PUBLIC.
+
 ## Uploading and Analyzing Data Using dbt
 
 According to [4], "dbt is a SQL-first transformation workflow that lets teams quickly and collaboratively deploy analytics code following software engineering best practices like modularity, portability, CI/CD, and documentation."
@@ -251,10 +253,15 @@ OAuth method: --
 Role: ACCOUNTADMIN
 Auth method: Username and password
 Username: TSLEVER
-Password: Password for UVA_SDS_ONLINE_MSDS_PROGRAM_DATABASE
+Password: Password for accessing Snowflake
 Schema: dbt_tslever
 Target name: default
 Threads: 6
+
+I connected dbt Cloud to this Git repository.
+
+I started developing in the dbt Cloud IDE. I initialized a dbt project and committed changes to my Git repository to branch dbt. I issued a pull request and merged changes into branch main. Running dbt run created tables / models dbt_tslever.my_first_dbt_model and dbt_tslever.my_second_dbt_model in the DBT_TSLEVER schema of UVA_SDS_ONLINE_MSDS_PROGRAM_DATABASE of Snowflake. Running dbt run again did the same thing.
+
 
 
 ## References
