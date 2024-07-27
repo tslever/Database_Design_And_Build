@@ -264,6 +264,8 @@ I started developing in the dbt Cloud IDE. I initialized a dbt project and commi
 
 I added courses_csv.csv, instructors_csv.csv, outcomes_csv.csv, teaching_assignments_csv.csv, and terms_csv.csv to directory seeds. I ran dbt seed to create tables in schema DBT_TSLEVER based of these seed files.
 
+I performed analyses by opening SQL files in directory analyses (e.g., "1--select_mnemonics_and_names_of_active_courses.sql") and pressing button with label "Preview". I saved views as CSV files in directory analyses with the same base names less the string "select_".
+
 
 ## References
 
