@@ -197,36 +197,42 @@ ON instructor_id = instructors.id
 
 ## Uploading and Analyzing Data Using Snowflake
 
-I used Snowflake to create tables from file. I saved tables courses, instructors, outcomes, teaching_assignments, and terms to CSV files. I uploaded those CSV files to create tables courses_csv, instructors_csv, outcomes_csv, teaching_assignments_csv, and terms_csv.
+Snowflake is a cloud based data warehousing platform that provides a data storage and analytics service.
 
-I used Snowflake to create tables as select. I created table table_of_mnemonics_names_and_active_outcomes_for_active_courses by creating a table based on the following query.
+I signed up for a free trial. I chose to load data from files. I created database UVA_SDS_Online_MSDS_Program_Database.
+
+Using SQL Server Management Studio 20, I saved views of our Azure database to files courses.csv, instructors.csv, outcomes.csv, teaching_assignments.csv, and terms.csv.
+
+I used Snowflake to create tables from file. I uploaded those CSV files to create tables courses_csv, instructors_csv, outcomes_csv, teaching_assignments_csv, and terms_csv. I selected all rows from these tables.
+
+I used Snowflake to create tables as select. I created table table_of_mnemonics_names_and_active_outcomes_for_active_courses_ERD by creating a table based on the following query.
 
 ```
 create table table_of_mnemonics_names_and_active_outcomes_for_active_courses_ERD as
     SELECT mnemonic, name, outcome
-    FROM DS5111_SU24.tsl2b.courses_csv AS courses
-    LEFT JOIN DS5111_SU24.tsl2b.outcomes_csv AS outcomes
-    ON courses.id = course_id
-    WHERE courses.is_active = 1 AND outcomes.is_active = 1;
+    FROM courses_csv
+    LEFT JOIN outcomes_csv
+    ON courses_csv.id = course_id
+    WHERE courses_csv.is_active = 1 AND outcomes_csv.is_active = 1;
 ```
 
-I created table table_of_mnemonics_course_names_seasons_years_and_names_of_instructors by creating a table based on the following query.
+I created table table_of_mnemonics_course_names_seasons_years_and_names_of_instructors_ERD by creating a table based on the following query.
 
 ```
-create table table_of_mnemonics_course_names_seasons_years_and_names_of_instructors_erd as
+create table table_of_mnemonics_course_names_seasons_years_and_names_of_instructors_ERD as
     SELECT
         mnemonic,
-        courses.name as course_name,
+        courses_csv.name as course_name,
         season,
         year,
-        instructors.name as instructor_name
-    FROM DS5111_SU24.tsl2b.teaching_assignments_csv
-    LEFT JOIN DS5111_SU24.tsl2b.courses_csv AS courses
-    ON course_id = courses.id
-    LEFT JOIN DS5111_SU24.tsl2b.terms_csv AS terms
-    ON term_id = terms.id
-    LEFT JOIN DS5111_SU24.tsl2b.instructors_csv AS instructors
-    ON instructor_id = instructors.id
+        instructors_csv.name as instructor_name
+    FROM teaching_assignments_csv
+    LEFT JOIN courses_csv
+    ON course_id = courses_csv.id
+    LEFT JOIN terms_csv
+    ON term_id = terms_csv.id
+    LEFT JOIN instructors_csv
+    ON instructor_id = instructors_csv.id
 ```
 
 ## References
