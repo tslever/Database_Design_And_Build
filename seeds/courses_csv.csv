@@ -1,0 +1,18 @@
+﻿id,mnemonic,name,brief,is_active
+0,CS 5012,Foundations of Computer Science,"A foundation in discrete mathematics, data structures, algorithmic design and implementation, computational complexity, parallel computing, and data integrity",1
+1,DS 5001,Exploratory Text Analytics,"Introduction to text analytics with a focus on long-form documents such as reviews, news articles, and novels",1
+2,DS 5100,Programming for Data Science,"Programming essentials for Data Science using Python, R, and GitHub",1
+3,DS 5110,Big Data Systems,Use Spark for large scale analytics and machine learning and explore basics of AWS cloud tools,1
+4,DS 6001,Practice and Application of Data Science,"Build skills to acquire, clean, analyze, understand, and interpret data",1
+5,DS 6002,Ethics of Big Data I,Examines the ethical issues arising around Big Data,1
+6,DS 6003,Practice and Application of Data Science II,Practitioner seminar,0
+7,DS 6011,Data Science Capstone Project Work I,Data Science Capstone Project Part 1,1
+8,DS 6012,Ethics of Big Data II,Examines the ethical issues arising around Big Data,0
+9,DS 6013,Data Science Capstone Project Work II,Data Science Capstone Project Part 2,0
+10,DS 6030,Statistical Learning,Fundamentals of data mining and machine learning within a common statistical framework,1
+11,DS 6040,Bayesian Machine Learning,Build Bayesian models to provide predictions and quantify the uncertainty in these predictions,1
+12,DS 6050,Deep Learning,Deep learning fundamentals and applications,1
+13,DS Business Analytics,Business Analytics for Data Scientists,Focuses on the application of data science to critical problems and opportunities in business,0
+14,DS Technical Bootcamp,Technical Bootcamp,Bootcamp for new online MSDS students,1
+15,SARC 5400,Data Visualization,Teaches visual and spatial thinking coupled with visual data tools and interactive web coding to envision information,0
+16,STAT 6021,Linear Models for Data Science,An introduction to linear statistical models in the context of Data Science,1
