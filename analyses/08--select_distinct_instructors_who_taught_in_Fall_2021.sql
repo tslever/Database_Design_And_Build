@@ -1,0 +1,13 @@
+SELECT DISTINCT
+    INSTRUCTORS_CSV.name,
+    season,
+    year
+FROM TEACHING_ASSIGNMENTS_CSV
+LEFT JOIN INSTRUCTORS_CSV
+ON INSTRUCTORS_CSV.id = instructor_id
+LEFT JOIN TERMS_CSV
+ON TERMS_CSV.id = term_id
+WHERE
+    season = 'Fall' AND
+    year = 2021
+ORDER BY name
