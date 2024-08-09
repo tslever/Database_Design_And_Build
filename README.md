@@ -10,7 +10,7 @@ See specifications for this UVA SDS Online MSDS Program Database Project in this
 
 ## Data
 
-The database is based on Excel workbook Current_Learning_Objectives_Raw_Data.xlsx in this repository provided by Efrain Olivares on 07/16/2024. The workbook contains a worksheet entitled, "Teaching Assignments: Instructors to Courses by Term" that contains tables of information for courses that were active for each of terms Spring 2021, Summer 2021, and Fall 2021 and the names of the instructors who were employed and active during those terms and taught those courses. One or more courses are taught in a given semester. A course might have one instructor or more instructors. Two instructors may teach different sections of the same course or co-teach a section of a course.
+The database is based on Excel workbook `Current_Learning_Objectives_Raw_Data.xlsx` in this repository provided by Efrain Olivares on 07/16/2024. The workbook contains a worksheet entitled, "Teaching Assignments: Instructors to Courses by Term" that contains tables of information for courses that were active for each of terms Spring 2021, Summer 2021, and Fall 2021 and the names of the instructors who were employed and active during those terms and taught those courses. One or more courses are taught in a given semester. A course might have one instructor or more instructors. Two instructors may teach different sections of the same course or co-teach a section of a course.
 
 The workbook contains a worksheet with a table of instructor names and notes about which instructors are currently employed by the School of Data Science, a table of names of terms, and a table of course mnemonics (e.g., "DS 5001"), names, and short descriptions (i.e., briefs).
 
@@ -20,7 +20,7 @@ The workbook contains worksheets for all courses except for "SARC 5400: Data Vis
 
 ### Database
 
-We construct database UVA_SDS_Online_MSDS_Program_Database on server tom-levers-server.database.windows.net. We used Microsoft Azure: Cloud Computing Services. We used Visual Studio Code and the following ADO.NET connection string with SQL authentication to create, retrieve, update, and delete objects in the database.
+We construct database UVA_SDS_Online_MSDS_Program_Database on server `tom-levers-server.database.windows.net`. We used Microsoft Azure: Cloud Computing Services. We used Visual Studio Code and the following ADO.NET connection string with SQL authentication to create, retrieve, update, and delete objects in the database.
 
 ```
 Server=tcp:tom-levers-server.database.windows.net,1433;Initial Catalog=UVA_SDS_Online_MSDS_Program_Database;Persist Security Info=False;User ID=thomas.lever.business@gmail.com@tom-levers-server;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -37,9 +37,13 @@ ORDER BY TABLE_NAME;
 
 ### Tables
 
-Please see the below Entity Relationship Diagram and Relational Model. I followed Samuele Furnari and Diego Alberto Zapata Häntsch's responses at https://stackoverflow.com/questions/53293349/azure-data-studio-schema-diagram to generate automatically using Mermaid a Entity Relationship Diagram (ERD) and Relational Model. However, the relationships in this ERD were reversed. I then downloaded Microsoft SQL Server Management Studio and generated the below ERD.
+Please see the below Entity Relationship Diagram and Relational Model. I followed Samuele Furnari and Diego Alberto Zapata Häntsch's responses at https://stackoverflow.com/questions/53293349/azure-data-studio-schema-diagram to generate automatically using Mermaid a Entity Relationship Diagram (ERD) and Relatihttps://github.com/tslever/tsl2b_database_lab/settingsonal Model. However, the relationships in this ERD were reversed. I then downloaded Microsoft SQL Server Management Studio and generated the below ERD.
 
-![Entity Relationship Diagram and Relational Model](Entity_Relationship_Diagram.png)
+![Entity Relationship Diagram and Relational Model Per R0tenur/visualization](Entity_Relationship_Diagram_Per_R0tenurSLASHvisualization.png)
+
+After generating the above ERD I forked Git repository `R0tenur/visualization` as `Generator_Of_ERDs`. I corrected inverted relationships. I created a pull request to `R0tenur/visualization` "153: Corrected Generation Of Entity Relationship Diagram" with software changes and detailed documentation on installing and using a vsix file / extension in Azure Data Studio. I asked for review of my pull request in issue "138: Wrong relation direction", in comments to Samuele Furnari and Diego Alberto Zapata Häntsch's responses, and in a comment at https://stackoverflow.com/questions/78776709/drawing-relationships-in-entity-relationship-diagram/78831819?noredirect=1#comment138990567_78831819.
+
+![Entity Relationship Diagram and Relational Model Per Generator Of ERDs](Entity_Relationship_Diagram_Per_Generator_Of_ERDs.png)
 
 Learning outcomes (LOs) capture what students should be able to do after taking a course (e.g., design and build a MySQL database). Learning outcomes vary in terms of detail as they are written by different instructors. Learning outcomes for each course must be in the database. We constructed table outcomes with columns id, course_id, outcome, and is_active. Column id is a not null primary key of whole numbers. Column course_id is a not null column of whole numbers that is a foreign key that references column id in table courses. Column outcome is a not null column of strings. Column is_active is a not null column of bits.
 
@@ -158,8 +162,6 @@ These actions should not be allowed:
     a. an id that is not a whole number
 
     b. a combination of course id, term id, and instructor id where a course is not offered in the corresponding term, a course is not taught by the corresponding instructor, or an instructor is not employed and active in the corresponding term
-
-8. Relational Model
 
 ### Extending Database to Support UVA SDS Residential MSDS Program
 
